@@ -1,0 +1,7 @@
+node_modules/
+dist/
+__pycache__/
+.venv/
+salida.csv
+report.json
+report.md
