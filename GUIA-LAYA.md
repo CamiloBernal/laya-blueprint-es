@@ -12,6 +12,9 @@
 [![License](https://img.shields.io/badge/licencia-Apache%202.0-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-%E2%89%A5%203.10-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Idioma](https://img.shields.io/badge/idioma-espa%C3%B1ol-c60b1e)](#inicio)
+[![Autor](https://img.shields.io/badge/autor-camilobernal.dev-6f42c1?logo=googlechrome&logoColor=white)](https://www.camilobernal.dev/?utm_source=github&utm_medium=guia&utm_campaign=laya-blueprint-es)
+
+Por **Camilo Bernal** · [camilobernal.dev](https://www.camilobernal.dev/?utm_source=github&utm_medium=guia&utm_campaign=laya-blueprint-es)
 
 </div>
 
@@ -1674,6 +1677,12 @@ flowchart LR
     L --> O
 ```
 
+> [!TIP]
+> **¿De la guía a tu organización?** Pasar de un caso de uso a producción exige decisiones de
+> arquitectura, gobierno de IA y medición que ninguna guía resuelve en abstracto. Si quieres conversarlo
+> para tu contexto (BFSI, salud, gobierno, transporte o educación), visita
+> **[camilobernal.dev](https://www.camilobernal.dev/?utm_source=github&utm_medium=guia-casos&utm_campaign=laya-blueprint-es)**.
+
 ---
 
 <a id="limites"></a>
@@ -1886,6 +1895,6 @@ resultados en tu entorno pueden diferir. Se ofrece "TAL CUAL", sin garantías de
 
 ---
 
-*Hecho con rigor para la comunidad hispanohablante · [Volver al inicio](#inicio)*
+*Hecho con rigor para la comunidad hispanohablante por **Camilo Bernal** · [camilobernal.dev](https://www.camilobernal.dev/?utm_source=github&utm_medium=guia-footer&utm_campaign=laya-blueprint-es) · [Volver al inicio](#inicio)*
 
 </div>

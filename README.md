@@ -11,6 +11,7 @@ Windows · Linux · macOS
 [![Upstream](https://img.shields.io/badge/upstream-NandhaKishorM%2Flaya-181717?logo=github)](https://github.com/NandhaKishorM/laya)
 [![Laya](https://img.shields.io/badge/verificada%20contra-laya%200.3.22-2ea44f)](https://pypi.org/project/laya/0.3.22/)
 [![License](https://img.shields.io/badge/licencia-Apache%202.0-green.svg)](LICENSE)
+[![Autor](https://img.shields.io/badge/autor-camilobernal.dev-6f42c1?logo=googlechrome&logoColor=white)](https://www.camilobernal.dev/?utm_source=github&utm_medium=readme&utm_campaign=laya-blueprint-es)
 
 </div>
 
@@ -94,7 +95,25 @@ la guía (como artefacto) y las adjunta a un *Release* al publicar un tag `v*`.
 Abre un issue o un pull request. Para errores de Laya en sí, usa el
 [repositorio upstream](https://github.com/NandhaKishorM/laya/issues).
 
+## Sobre el autor
+
+Guía escrita y mantenida por **Camilo Bernal**, arquitecto de soluciones con más de 23 años de
+experiencia en banca, salud, transporte, educación y gobierno.
+
+> [!TIP]
+> ¿Estás evaluando Laya, o decisiones con IA en general, para tu organización? En
+> **[camilobernal.dev](https://www.camilobernal.dev/?utm_source=github&utm_medium=readme&utm_campaign=laya-blueprint-es)** encuentras mi trabajo en arquitectura empresarial,
+> modernización e IA aplicada, y la forma de contactarme.
+
 ## Licencia
 
 [Apache License 2.0](LICENSE). Material derivado de la documentación de Laya (Convai Innovations),
 traducido y ampliado; ver [`NOTICE`](NOTICE).
+
+---
+
+<div align="center">
+
+<sub>Hecho por <a href="https://www.camilobernal.dev/?utm_source=github&utm_medium=readme-footer&utm_campaign=laya-blueprint-es">Camilo Bernal · camilobernal.dev</a></sub>
+
+</div>

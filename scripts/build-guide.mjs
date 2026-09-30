@@ -40,6 +40,17 @@ function absolutize(href) {
   return `${repoUrl}/${kind}/${branch}/${clean}`;
 }
 
+// "https://img.shields.io/badge/label-message-color" -> "label: message" ("--" is a literal dash).
+function badgeLabel(href) {
+  const m = /^https:\/\/img\.shields\.io\/badge\/([^?]+)/.exec(href ?? "");
+  if (!m) return null;
+  const parts = m[1].replace(/--/g, "\u0000").replace(/__/g, "\u0001").split("-").map((part) =>
+    decodeURIComponent(part).replace(/\u0000/g, "-").replace(/\u0001/g, "_").replace(/_/g, " "));
+  if (parts.length < 2) return null;
+  parts.pop(); // color
+  return parts.join(": ");
+}
+
 const marked = new Marked({ gfm: true });
 marked.use({
   renderer: {
@@ -56,6 +67,13 @@ marked.use({
       const body = "<p>" + html.slice(match[0].length);
       const { title, icon } = ALERTS[kind];
       return `<div class="alert alert-${kind.toLowerCase()}"><p class="alert-title">${icon} ${title}</p>${body}</div>\n`;
+    },
+    // shields.io badges become local pills, so the PDF never depends on a network fetch.
+    image({ href, title, text }) {
+      const badge = badgeLabel(href);
+      if (badge) return `<span class="badge">${escapeHtml(badge)}</span>`;
+      const t = title ? ` title="${escapeHtml(title)}"` : "";
+      return `<img src="${absolutize(href)}" alt="${escapeHtml(text)}"${t}>`;
     },
     link({ href, title, tokens }) {
       const text = this.parser.parseInline(tokens);
@@ -93,6 +111,8 @@ blockquote { color: var(--muted); border-left: 4px solid var(--border); margin: 
 details { border: 1px solid var(--border); border-radius: 6px; padding: 8px 14px; margin: 10px 0; }
 summary { cursor: pointer; font-weight: 600; }
 img { max-width: 100%; }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; margin: 2px; border-radius: 10px;
+         background: #eef1f4; border: 1px solid var(--border); color: var(--fg); }
 input[type=checkbox] { margin-right: .4em; }
 @media print { body { max-width: none; padding: 0; } a { color: var(--fg); } }
 `;
@@ -143,7 +163,7 @@ ${body}
       headerTemplate: "<span></span>",
       footerTemplate:
         '<div style="font-size:8px;width:100%;text-align:center;color:#59636e;">' +
-        "Laya: de cero a experto · Apache-2.0 · página <span class=pageNumber></span> de <span class=totalPages></span></div>",
+        "Laya: de cero a experto · Camilo Bernal · camilobernal.dev · Apache-2.0 · página <span class=pageNumber></span> de <span class=totalPages></span></div>",
     });
   } finally {
     await browser.close();
