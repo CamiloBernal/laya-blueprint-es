@@ -1,0 +1,24 @@
+{
+  "state_key": "body",
+  "questions": {
+    "request_type": {
+      "type": "choice",
+      "instructions": "What kind of citizen request is `body`?",
+      "criteria": {
+        "petition": "asks for information, documents or a service",
+        "complaint": "expresses dissatisfaction with how an official or office behaved",
+        "claim": "demands a correction or compensation for a service that failed",
+        "suggestion": "proposes an improvement",
+        "report": "reports an irregularity, corruption or a possible crime"
+      }
+    },
+    "legal_deadline": {
+      "type": "noul",
+      "instructions": "Does `body` mention a tutela, a court order or an expired legal deadline?",
+      "criteria": {
+        "false": "no court action or legal deadline is mentioned",
+        "true": "mentions a tutela, a court order or a legal deadline"
+      }
+    }
+  }
+}

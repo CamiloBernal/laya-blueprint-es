@@ -1,0 +1,17 @@
+{
+  "state": {"body": "Me cobraron dos veces la cuota de marzo, necesito el reembolso hoy."},
+  "model": "multilingual",
+  "min_confidence": 0.8,
+  "questions": {
+    "department": {
+      "type": "choice",
+      "instructions": "Which department should handle this request?",
+      "criteria": {"billing": "invoices, payments, refunds", "technical": "bugs, outages", "other": "everything else"}
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "How urgent is this request?",
+      "criteria": ["not urgent", "soon", "blocking"]
+    }
+  }
+}

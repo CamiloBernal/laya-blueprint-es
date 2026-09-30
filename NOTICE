@@ -1,0 +1,22 @@
+Laya: de cero a experto — guía práctica en español
+Copyright 2026 Camilo Bernal
+
+This product is an independent, unofficial documentation work about Laya.
+
+Laya
+Copyright Convai Innovations
+https://github.com/NandhaKishorM/laya
+Licensed under the Apache License, Version 2.0.
+
+This repository contains material derived from the Laya project's documentation
+(README.md, docs/, examples/) at release 0.3.22, commit
+6d942c92081fbc139e736bbd9ac0023223c29b7f (2026-09-29). That material has been
+translated into Spanish, reorganized, abridged and extended. Code snippets and
+examples adapted from the upstream project are marked as such in their files.
+
+This work is not affiliated with, sponsored by or endorsed by Convai Innovations
+or the Laya maintainers. "Laya" and related names are used only to identify the
+origin of the software being documented.
+
+Unless otherwise noted, the contents of this repository are distributed under the
+Apache License, Version 2.0. See the LICENSE file.

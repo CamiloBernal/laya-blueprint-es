@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "laya": {
+      "command": "/ABSOLUTE/PATH/TO/project/.venv/bin/laya-mcp-server",
+      "env": {
+        "LAYA_DEVICE": "cpu",
+        "LAYA_MODELS": "english,multilingual"
+      }
+    }
+  }
+}

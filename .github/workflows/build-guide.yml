@@ -1,0 +1,64 @@
+# Builds the downloadable HTML and PDF editions of GUIA-LAYA.md.
+# - Every push or PR that touches the guide: build and upload them as a workflow artifact.
+# - Every tag v*: also attach them to a GitHub Release.
+name: build-guide
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+    paths: ["GUIA-LAYA.md", "scripts/**", "package.json", "package-lock.json", ".github/workflows/build-guide.yml"]
+  pull_request:
+    paths: ["GUIA-LAYA.md", "scripts/**", "package.json", "package-lock.json", ".github/workflows/build-guide.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Build HTML and PDF
+        env:
+          GUIDE_REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+          GUIDE_BRANCH: ${{ github.ref_type == 'tag' && github.ref_name || 'main' }}
+        run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guia-laya
+          path: dist/
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: guia-laya
+          path: dist
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/GUIA-LAYA.pdf
+            dist/GUIA-LAYA.html
+          generate_release_notes: true
